@@ -18,7 +18,38 @@ MarbleGame = function (marble.collection) {
 MarbleGame(marbles)
 
 # Bonus: Play the marble game until you win, keeping track of how many tries you take
-4
+count <- 0
+did.i.win <- FALSE
+while (did.i.win == FALSE) {
+  color <- MarbleGame(marbles)
+  if (color != "blue") {
+    count <- count + 1
+  } else {
+    did.i.win <- TRUE
+  }
+}
 
 ## Double bonus(answer not provided): play the game 1000X (until you win) and track the average number of tries
 # Is it what you expected based on the probability
+
+tries <- 0
+
+for (i in 1:1000) {
+  
+  count <- 0
+  did.i.win <- FALSE
+  while (did.i.win == FALSE) {
+    color <- MarbleGame(marbles)
+    if (color != "blue") {
+      count <- count + 1
+    } else {
+      count <- count + 1
+      did.i.win <- TRUE
+    }
+  }
+  
+  tries <- tries + count
+  next
+}
+
+average <- tries / 1000
